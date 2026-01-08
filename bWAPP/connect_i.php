@@ -25,10 +25,11 @@ $link = new mysqli($server, $username, $password, $database);
 // Checks the connection
 if($link->connect_error)
 {
+    // Log the error message to a file or monitoring system
+    error_log("Connection failed: " . $link->connect_error);
     
-    // @mail($recipient, "Connection failed: ", $link->connect_error);
-    
-    die("Connection failed: " . $link->connect_error);   
+    // Display a generic error message to the user
+    die("Connection failed. Please try again later.");   
    
 }
 
