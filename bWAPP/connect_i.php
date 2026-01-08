@@ -19,16 +19,21 @@ bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivativ
 // Connection settings
 include("config.inc.php");
 
+// Set error reporting to not display errors to the user
+ini_set('display_errors', 0);
+error_reporting(0);
+
 // Connects to the server
 $link = new mysqli($server, $username, $password, $database);
 
 // Checks the connection
 if($link->connect_error)
 {
+    // Log the error message to a file or monitoring system
+    error_log("Connection failed: " . $link->connect_error);
     
-    // @mail($recipient, "Connection failed: ", $link->connect_error);
-    
-    die("Connection failed: " . $link->connect_error);   
+    // Display a generic error message to the user
+    die("Connection failed. Please try again later.");   
    
 }
 

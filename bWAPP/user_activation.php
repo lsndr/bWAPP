@@ -38,9 +38,11 @@ if(isset($_GET["user"]) && isset($_GET["activation_code"]) )
                              
     if(!$recordset)
     {
+        // Log the error message to a file or monitoring system
+        error_log("SQL Error: " . $link->error);
 
-        die("Error: " . $link->error);
-
+        // Display a generic error message to the user
+        die("An error occurred while processing your request. Please try again later.");
     }
                 
     // Debugging                 
@@ -65,9 +67,11 @@ if(isset($_GET["user"]) && isset($_GET["activation_code"]) )
 
         if(!$recordset)
         {
+            // Log the error message to a file or monitoring system
+            error_log("SQL Error: " . $link->error);
 
-            die("Error: " . $link->error);
-
+            // Display a generic error message to the user
+            die("An error occurred while processing your request. Please try again later.");
         }
                     
         // Debugging                  
