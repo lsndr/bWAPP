@@ -33,6 +33,10 @@ if($link->connect_error)
    
 }
 
+// Set error reporting to not display errors to the user
+ini_set('display_errors', 0);
+error_reporting(0);
+
 // $link->close();
 
 ?>
