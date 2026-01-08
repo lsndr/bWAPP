@@ -19,6 +19,10 @@ bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivativ
 // Connection settings
 include("config.inc.php");
 
+// Set error reporting to not display errors to the user
+ini_set('display_errors', 0);
+error_reporting(0);
+
 // Connects to the server
 $link = new mysqli($server, $username, $password, $database);
 
@@ -32,10 +36,6 @@ if($link->connect_error)
     die("Connection failed. Please try again later.");   
    
 }
-
-// Set error reporting to not display errors to the user
-ini_set('display_errors', 0);
-error_reporting(0);
 
 // $link->close();
 
