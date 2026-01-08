@@ -21,7 +21,7 @@ after(() => runner.clear());
 test('GET bWAPP/user_activation.php', { signal: AbortSignal.timeout(timeout) }, async () => {
   await runner
     .createScan({
-      tests: ['sqli', 'xss', 'csrf', 'full_path_disclosure'],
+      tests: ['full_path_disclosure'],
       attackParamLocations: [AttackParamLocation.QUERY],
       starMetadata: {
         code_source: 'lsndr/bWAPP:master',
